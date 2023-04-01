@@ -10,3 +10,39 @@ body{
     width: 100vw;
     background: #939393;
 }
+.password-req{
+    border-color: red;
+}   
+.email-req{
+    border-color: red;
+}
+.phone-req{
+    border-color: red;
+}
+.name-req{
+    border-color: red;
+}
+.required{
+    font-size: smaller;
+    margin-top: 0.1em;
+    color: rgb(255, 96, 96);
+    opacity: 0;
+}
+.name-req + p{
+    opacity: 1;
+}
+.phone-req + p{
+    opacity: 1;
+}
+.email-req + p{
+    opacity: 1;
+}
+/* .nameRequired{
+    opacity: 1;
+} 
+.phoneRequired{
+    opacity: initial;
+}
+.emailRequired{
+    opacity: initial;
+}*/

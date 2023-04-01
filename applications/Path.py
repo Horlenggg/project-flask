@@ -1,6 +1,7 @@
 LOGIN_PAGE = 'Login'
 HOME_PAGE = 'Home'
 DEFAULT_PAGE = 'Defualt'
+UPADTE_PAGE = 'Edit'
 DIRECTORY_PAGE_AUTH = 'auth/'
 DIRECTORY_PAGE = 'page/'
 FILE_TEXT_VIEWS = '.html'

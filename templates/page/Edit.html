@@ -1,0 +1,31 @@
+
+{% extends 'Layout.html' %}
+
+{% block title %} Edit student {% endblock %}
+
+{% block content %}
+    
+<div class="lg:w-[40%] md:w-[60%] sm:w-[80%] w-[90%] mt-5 mx-auto transition-all duration-500 bg-gray-500 lg:p-12 md:p-8 sm:p-6 p-5 rounded-lg shadow-sm shadow-gray-100">
+    <span class="lg:text-3xl text-xl uppercase">
+        Update Student
+    </span>
+    <form action={{"/get_update_student/"+str(student['_id'])}} method="post" class="flex flex-col gap-2 mt-5">
+        <label for="name" class="text-base">Name</label>
+        <input type="text" id="name" name="name" required value='{{student['name']}}'  
+        class="py-3 px-5 bg-inherit border-2 rounded-lg border-gray-400 focus:ring-1 focus:ring-sky-500 transition-all duration-200 outline-none">
+        <label for="email" class="text-base">Email</label>
+        <input type="text" id="email" name="email" required value={{student['email']}}
+        class="py-3 px-5 bg-inherit border-2 rounded-lg border-gray-400 focus:ring-1 focus:ring-sky-500 transition-all duration-200 outline-none">
+        <label for="phone" class="text-base">Phone</label>
+        <input type="text" id="phone" name="phone" required value={{student['phone']}}
+        class="py-3 px-5 bg-inherit border-2 rounded-lg border-gray-400 focus:ring-1 focus:ring-sky-500 transition-all duration-200 outline-none">
+        <span class="self-end flex items-center gap-2">
+            <a href="/home">
+                <button type="button" class="w-[100px] py-3 bg-inherit hover:bg-red-600 rounded-lg border mt-2 active:ring-2 active:ring-gray-200 transition-all duration-200 shadow-lg shadow-gray-400 hover:shadow-gray-700">Back</button>
+            </a>
+            <button type="submit" class="w-[100px] py-3 bg-inherit hover:bg-gray-600 rounded-lg border mt-2 active:ring-2 active:ring-gray-200 transition-all duration-200 shadow-lg shadow-gray-400 hover:shadow-gray-700">Save</button>
+        </span>
+    </form>
+</div>
+
+{% endblock %}

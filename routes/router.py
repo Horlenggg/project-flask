@@ -1,5 +1,7 @@
-from flask import Blueprint
+from flask import Blueprint,session
+from datetime import datetime,timedelta
 from Controller import AuthController,MyController
+import jwt
 
 router = Blueprint('router',__name__)
 
@@ -31,6 +33,26 @@ def editStudent(id):
 @router.post('/get_update_student/<id>')
 def get_update_student(id):
     return MyController.upadteStudent(id)
+
+@router.get('/create-session')
+def create_session():
+    session['abc'] = 'Hello, world'
+    return dict({'ms':'message created'})
+
+@router.get('/get-session')
+def get_session():
+    if 'abck' in session:
+        abc =session['abck']
+        return abc
+    return 'authentications'
+
+@router.get('/create-token/<data>')
+def create_token(data):
+    token = jwt.encode({
+        'password':data,
+        'exp':datetime.now() + timedelta(minutes=5)
+    },"dkkmeveuuveuuve")
+    return dict(token=token)    
 
 
 # @router.get('signUp')

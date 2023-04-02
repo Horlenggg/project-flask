@@ -1,8 +1,11 @@
 from .AuthModel import AuthModel
 from .db import db
-from flask import redirect,Response,jsonify
+from flask import redirect,Response,jsonify,session
 from bson import json_util,ObjectId
 from Views import view
+from werkzeug.security import generate_password_hash,check_password_hash
+
+
 class MyModel(AuthModel):
 
     def __init__(self):
@@ -20,8 +23,9 @@ class MyModel(AuthModel):
     def requestLogin(email,password):
         try:
             users = db['users'].find_one({'email': email,'password': password})
-            # return Response(json_util.dumps(users),mimetype='application/json')
             if users:
+                data = {'email':email,'password':generate_password_hash(password)}
+                session['data'] = "hhhhgg"
                 return redirect('/home')
             else :
                 return jsonify({"message":"Unauthentications"})

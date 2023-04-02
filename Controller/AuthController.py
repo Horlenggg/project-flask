@@ -10,9 +10,7 @@ class AuthController:
     
 
     def requestLogin():
-
         data = request.form
-
         if data['email'] and data['password']:
             return MyModel.requestLogin(data['email'],data['password'])
         else :

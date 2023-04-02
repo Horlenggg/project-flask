@@ -2,7 +2,7 @@ from .StudentController import StudentController
 from applications import *
 from Views import view
 from Model import MyModel
-from flask import jsonify
+from flask import jsonify,sessions,redirect
 
 class MyController(StudentController):
     
@@ -12,6 +12,9 @@ class MyController(StudentController):
 
     def Home():
         return MyModel.getStudent()
+        # if sessions['data']:
+        # else :
+        #     return redirect('/login')
     
     def update_stu_form(id):
         if len(id) == 24:

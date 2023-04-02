@@ -4,8 +4,8 @@ from flask_session import  Session
 app = Flask(__name__)
 
 # app.config["SESSION_PERMANENT"] = False
-app.secret_key="horleng"
-SESSION_TYPE = "filesystem"
+app.config['SESSION_TYPE'] = "filesystem"
+app.config['SECRET_KEY'] = 'vbrihvhrbsbveiiiiqekq'
 app.config.from_object(__name__)
 Session(app)
 

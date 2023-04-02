@@ -50,7 +50,7 @@ def get_session():
 def create_token(data):
     token = jwt.encode({
         'password':data,
-        'exp':datetime.now() + timedelta(minutes=5)
+        'exp':datetime.utcnow() + timedelta(minutes=5)
     },"dkkmeveuuveuuve")
     return dict(token=token)    
 

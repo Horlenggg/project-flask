@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <div class="lg:px-[70px] px-[30px] md:py-10 py-5">
+    <div class="lg:px-[70px] px-[30px] md:py-10 py-5 max-h-[60vh]">
         <div class="flex justify-between items-center">
             <span class="text-2xl font-semibold">
                 Student Management
@@ -17,11 +17,13 @@
             </span>
         </div>
         <hr>
-        <div class="lg:flex lg:gap-10 mt-5 lg:w-full w-[90%] mx-auto">
+        <div class="lg:flex lg:gap-10 mt-5 mx-auto overflow-y-auto scrollbar-thin scrollbar-thumb-sky-600 scrollbar-track-blue-300 bg-gray-700 xl:px-[50px] lg:px-[30px] lg:h-auto h-screen py-3 px-5 rounded-md shadow shadow-gray-400">
             <div class="xl:flex-[0.8] lg:flex-[0.6]">
                 {% include 'page/FormAdd.html' %}
             </div>
-            <div class="lg:flex-1 overflow-auto h-full mt-10">
+            <div class="lg:flex-1 overflow-auto lg:pb-0 pb-[150px] lg:h-[75vh] h-fit lg:overflow-auto mt-5 lg:scrollbar-thin lg:scrollbar-thumb-gray-300 lg:scrollbar-track-gray-700">
+                <span class="lg:hidden flex justify-center text-2xl">List Student</span>
+                <hr class="lg:hidden block">
                 {% include 'page/Table.html' %}    
             </div>
         </div>

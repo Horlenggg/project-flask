@@ -1,4 +1,4 @@
-from flask import request,redirect
+from flask import request,redirect,session
 from Views import view
 from applications import *
 from Model import MyModel
@@ -8,7 +8,14 @@ class AuthController:
     def Login():
         return view.renderThemplate(DIRECTORY_PAGE_AUTH,LOGIN_PAGE,FILE_TEXT_VIEWS)
     
-
+    def Logout():
+        try:
+            session['token'] = None
+            return redirect('login')
+        except Exception as e:
+            return dict(message = str(e)) ,400
+            
+            
     def requestLogin():
         data = request.form
         if data['email'] and data['password']:

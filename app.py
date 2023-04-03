@@ -1,6 +1,10 @@
 from flask import Flask,render_template,session
 from routes import router
 from flask_session import  Session
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 app = Flask(__name__)
 
 # app.config["SESSION_PERMANENT"] = False
@@ -18,15 +22,10 @@ def pageNotfound(error):
     return render_template("page/Defualt.html"),404
 
 
-@app.get('/')
-def greeting():
-    return {"ms":"Hello dear, Wellcome to my website...!"}
-
-
 
 if __name__ == '__main__':
     app.run(
-        host="localhost",
-        port=5000,
+        host=os.getenv("HOST"),
+        port=os.getenv("PORT"),
         debug=True
     )
